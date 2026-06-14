@@ -2123,7 +2123,7 @@ async function handleHeroFormSubmit(e) {
       btn.textContent = '✓ Sent! We\'ll call you soon.';
       btn.style.background = 'oklch(0.50 0.14 145)';
       if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {'send_to': 'AW-1018585285/cfqCCO3PrrQcEMXB2eUD'});
+        gtag('event', 'conversion', {'send_to': 'AW-1018585285/P5hbCPmr_b4cEMXB2eUD'});
       }
       const waMsg = encodeURIComponent(
         `Hello Pragati B.Ed Institute,\n\nI am interested in admission.\n\nName: ${name}\nPhone: ${phone}\nProgramme: ${course}\n\nPlease guide me on next steps.`
@@ -2185,6 +2185,7 @@ async function handleFormSubmit(e) {
     if (res.ok) {
       btn.textContent = '✓ Enquiry Sent! We\'ll call you soon.';
       btn.style.background = 'oklch(0.50 0.14 145)';
+      gtag('event', 'conversion', {'send_to': 'AW-1018585285/P5hbCPmr_b4cEMXB2eUD'});
 
       // Also open WhatsApp with pre-filled message
       const waMsg = encodeURIComponent(
@@ -2346,6 +2347,14 @@ function applyTweak(key, value) {
   }
   window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: value } }, '*');
 }
+</script>
+<script>
+document.addEventListener('click', function(e) {
+  var a = e.target.closest('a[href*="wa.me"]');
+  if (a && typeof gtag === 'function') {
+    gtag('event', 'conversion', {'send_to': 'AW-1018585285/OC4cCPyr_b4cEMXB2eUD'});
+  }
+}, true);
 </script>
 </body>
 </html>
