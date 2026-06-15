@@ -970,6 +970,9 @@ document.getElementById('f-btn').addEventListener('click', function() {
   });
   if (!ok) return;
 
+  // Fire Google Ads conversion immediately on valid submission
+  gtag('event', 'conversion', {'send_to': 'AW-1018585285/P5hbCPmr_b4cEMXB2eUD'});
+
   var btn = this;
   btn.textContent = 'Sending…';
   btn.disabled = true;
@@ -988,8 +991,6 @@ document.getElementById('f-btn').addEventListener('click', function() {
       btn.textContent = 'Submitted ✓ We\'ll call you soon!';
       btn.style.background = '#16a34a';
       btn.disabled = false;
-      // Fire Google Ads conversion
-      gtag('event', 'conversion', {'send_to': 'AW-1018585285/P5hbCPmr_b4cEMXB2eUD'});
       // Open WhatsApp with details
       var msg = '🎓 *New Admission Enquiry — Gurugram*\n\n👤 *Name:* ' + name +
                 '\n📞 *Phone:* ' + phone + '\n📧 *Email:* ' + (email || '—') + '\n📚 *Course:* ' + course +

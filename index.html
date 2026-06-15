@@ -2126,6 +2126,11 @@ async function handleHeroFormSubmit(e) {
   });
   if (!ok) return;
 
+  // Fire Google Ads conversion immediately on valid submission
+  if (typeof gtag === 'function') {
+    gtag('event', 'conversion', {'send_to': 'AW-1018585285/P5hbCPmr_b4cEMXB2eUD'});
+  }
+
   btn.textContent = 'Sending…';
   btn.disabled = true;
 
@@ -2145,9 +2150,6 @@ async function handleHeroFormSubmit(e) {
     if (res.ok) {
       btn.textContent = '✓ Sent! We\'ll call you soon.';
       btn.style.background = 'oklch(0.50 0.14 145)';
-      if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {'send_to': 'AW-1018585285/P5hbCPmr_b4cEMXB2eUD'});
-      }
       const waMsg = encodeURIComponent(
         `Hello Pragati B.Ed Institute,\n\nI am interested in admission.\n\nName: ${name}\nPhone: ${phone}\nProgramme: ${course}\n\nPlease guide me on next steps.`
       );
@@ -2189,6 +2191,11 @@ async function handleFormSubmit(e) {
     return;
   }
 
+  // Fire Google Ads conversion immediately on valid submission
+  if (typeof gtag === 'function') {
+    gtag('event', 'conversion', {'send_to': 'AW-1018585285/P5hbCPmr_b4cEMXB2eUD'});
+  }
+
   btn.textContent = 'Sending…';
   btn.disabled = true;
 
@@ -2209,7 +2216,6 @@ async function handleFormSubmit(e) {
     if (res.ok) {
       btn.textContent = '✓ Enquiry Sent! We\'ll call you soon.';
       btn.style.background = 'oklch(0.50 0.14 145)';
-      gtag('event', 'conversion', {'send_to': 'AW-1018585285/P5hbCPmr_b4cEMXB2eUD'});
 
       // Also open WhatsApp with pre-filled message
       const waMsg = encodeURIComponent(
