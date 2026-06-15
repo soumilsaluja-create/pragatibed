@@ -1343,7 +1343,7 @@
       <div class="stat-label">Graduates Placed</div>
     </div>
     <div class="reveal" style="transition-delay:0.1s">
-      <div class="stat-num" data-count="10">0</div>
+      <div class="stat-num" data-count="10" data-suffix="+">0</div>
       <div class="stat-label">Years of Excellence</div>
     </div>
     <div class="reveal" style="transition-delay:0.2s">
@@ -1894,7 +1894,7 @@ function animateCount(el) {
   function step(now) {
     const t = Math.min((now - start) / duration, 1);
     const ease = 1 - Math.pow(1 - t, 3);
-    el.textContent = Math.floor(ease * target) + (t === 1 ? (target >= 100 ? '+' : (target < 10 ? '' : '%')) : '');
+    el.textContent = Math.floor(ease * target) + (t === 1 ? (el.dataset.suffix !== undefined ? el.dataset.suffix : (target >= 100 ? '+' : (target < 10 ? '' : '%'))) : '');
     if (t < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
@@ -2232,9 +2232,16 @@ async function handleFormSubmit(e) {
       throw new Error('Server error');
     }
   } catch(err) {
-    btn.textContent = '✗ Failed — please call us directly';
+    console.error('Enquiry form submission failed:', err);
+    btn.textContent = '✗ Failed — opening WhatsApp…';
     btn.style.background = '#c0392b';
     btn.disabled = false;
+
+    const waMsg = encodeURIComponent(
+      `Hello Pragati B.Ed Institute,\n\nI am interested in admission.\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email || 'Not provided'}\nProgramme: ${course}\n\nPlease guide me on next steps.`
+    );
+    window.open(`https://wa.me/919818264953?text=${waMsg}`, '_blank');
+
     setTimeout(() => { btn.textContent = 'Send My Enquiry →'; btn.style.background = ''; }, 4000);
   }
 }

@@ -727,6 +727,9 @@ img { max-width: 100%; display: block; }
       <label class="f-label">Phone Number *</label>
       <input class="f-input" id="f-phone" type="tel" placeholder="98765 43210" autocomplete="tel">
 
+      <label class="f-label">Email Address</label>
+      <input class="f-input" id="f-email" type="email" placeholder="you@email.com" autocomplete="email">
+
       <label class="f-label">Course Interested In *</label>
       <select class="f-select" id="f-course">
         <option value="">Select a course…</option>
@@ -956,6 +959,7 @@ img { max-width: 100%; display: block; }
 document.getElementById('f-btn').addEventListener('click', function() {
   var name   = document.getElementById('f-name').value.trim();
   var phone  = document.getElementById('f-phone').value.trim();
+  var email  = document.getElementById('f-email').value.trim();
   var course = document.getElementById('f-course').value;
   var city   = document.getElementById('f-city').value.trim();
   var ok = true;
@@ -975,7 +979,7 @@ document.getElementById('f-btn').addEventListener('click', function() {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
-      name: name, phone: phone, course: course,
+      name: name, phone: phone, email: email, course: course,
       city: city || 'Delhi', source: 'Landing Page — Delhi'
     })
   })
@@ -989,7 +993,7 @@ document.getElementById('f-btn').addEventListener('click', function() {
       gtag('event', 'conversion', {'send_to': 'AW-1018585285/P5hbCPmr_b4cEMXB2eUD'});
       // Open WhatsApp with details
       var msg = '🎓 *New Admission Enquiry — Delhi*\n\n👤 *Name:* ' + name +
-                '\n📞 *Phone:* ' + phone + '\n📚 *Course:* ' + course +
+                '\n📞 *Phone:* ' + phone + '\n📧 *Email:* ' + (email || '—') + '\n📚 *Course:* ' + course +
                 '\n📍 *City:* ' + (city || 'Gurugram');
       window.open('https://wa.me/919810290953?text=' + encodeURIComponent(msg), '_blank');
     } else { throw new Error(); }
@@ -998,7 +1002,7 @@ document.getElementById('f-btn').addEventListener('click', function() {
     btn.textContent = 'Get Admission Details →';
     btn.disabled = false;
     var msg = '🎓 *New Admission Enquiry — Delhi*\n\n👤 *Name:* ' + name +
-              '\n📞 *Phone:* ' + phone + '\n📚 *Course:* ' + course +
+              '\n📞 *Phone:* ' + phone + '\n📧 *Email:* ' + (email || '—') + '\n📚 *Course:* ' + course +
               '\n📍 *City:* ' + (city || 'Gurugram');
     window.open('https://wa.me/919810290953?text=' + encodeURIComponent(msg), '_blank');
   });
