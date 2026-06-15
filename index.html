@@ -2134,7 +2134,7 @@ async function handleHeroFormSubmit(e) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
-        name, phone, email,
+        name, phone, enquiry_email: email,
         programme: course,
         _subject: 'New Admission Enquiry — Hero Form (Pragati B.Ed)',
         _replyto: email || 'noreply@pragatibedinstitute.com',
@@ -2197,7 +2197,7 @@ async function handleFormSubmit(e) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
-        name, phone, email,
+        name, phone, enquiry_email: email,
         programme: course,
         qualification: qual,
         _subject: 'New Admission Enquiry — Pragati B.Ed Institute',
