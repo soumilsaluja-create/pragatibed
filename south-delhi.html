@@ -464,6 +464,45 @@ img { max-width: 100%; display: block; }
 .c-detail { font-size: 12.5px; color: var(--text); font-weight: 600; }
 .c-detail span { color: var(--muted); font-weight: 400; }
 
+/* ── TESTIMONIALS ── */
+.testi-section {
+  background: var(--bg);
+  padding: 56px 24px;
+  border-top: 1px solid var(--border);
+}
+.testi-inner { max-width: 1200px; margin: 0 auto; }
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 8px;
+}
+.testi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 22px;
+}
+.testi-stars { color: #f59e0b; font-size: 14px; margin-bottom: 10px; letter-spacing: 0.05em; }
+.testi-text { font-size: 13.5px; color: var(--text); line-height: 1.7; font-style: italic; margin-bottom: 14px; }
+.testi-author { display: flex; align-items: center; gap: 10px; }
+.testi-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 14px; flex-shrink: 0;
+}
+.testi-name { font-size: 13px; font-weight: 700; color: var(--text); }
+.testi-role { font-size: 11.5px; color: var(--muted); }
+.testi-cta { text-align: center; margin-top: 28px; }
+.testi-cta a {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1.5px solid var(--green); color: var(--green);
+  font-size: 13px; font-weight: 700; padding: 10px 22px; border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.testi-cta a:hover { background: var(--green); color: #fff; }
+@media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; } }
+
 /* ── BOTTOM CTA ── */
 .bottom-cta {
   background: var(--green);
@@ -710,7 +749,7 @@ img { max-width: 100%; display: block; }
         WhatsApp Us Instead
       </a>
 
-      <p class="form-note">📍 Sector 8, Gurugram &nbsp;·&nbsp; 98102 90953 &nbsp;·&nbsp; No spam, ever.</p>
+      <p class="form-note">📍 Sector 8, Gurugram &nbsp;·&nbsp; 98102 90953 &nbsp;·&nbsp; No spam, ever.<br>Delhi counselling office: <a href="https://maps.app.goo.gl/78UsMzpuBFPdGjAA9" target="_blank" rel="noopener" style="color:var(--green);text-decoration:underline;">Lajpat Nagar-II</a></p>
     </div>
 
   </div>
@@ -759,7 +798,7 @@ img { max-width: 100%; display: block; }
     <div class="why-card">
       <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
       <div class="why-title">Serving Students from South Delhi</div>
-      <div class="why-desc">Students from South Delhi (Saket, Vasant Kunj, Mehrauli, Malviya Nagar) attend our Sector 8, Gurugram campus — just 20–30 mins away via NH-48.</div>
+      <div class="why-desc">Students from South Delhi (Saket, Vasant Kunj, Mehrauli, Malviya Nagar) attend our Sector 8, Gurugram campus — just 20–30 mins away via NH-48. Prefer to meet closer to home first? Visit our <a href="https://maps.app.goo.gl/78UsMzpuBFPdGjAA9" target="_blank" rel="noopener" style="color:var(--green);text-decoration:underline;">counselling office in Lajpat Nagar-II</a> for admission guidance.</div>
     </div>
     <div class="why-card">
       <div class="why-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 1 0 0 7h5a3.5 3.5 0 1 1 0 7H6"/></svg></div>
@@ -803,6 +842,52 @@ img { max-width: 100%; display: block; }
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="testi-inner">
+    <div class="section-label">Student Voices</div>
+    <h2 class="section-title" style="margin-bottom:32px">What our students<br>say about Pragati</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Pragati gave me the confidence and tools to step into any classroom. The faculty are incredibly supportive, and the practical training is second to none in Gurugram."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#1a5c38;">P</div>
+          <div>
+            <div class="testi-name">Priya Sharma</div>
+            <div class="testi-role">B.Ed Graduate</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"As a working woman, the flexible support sessions and Sunday online classes made all the difference. I completed my B.Ed without sacrificing family time."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#25D366;">R</div>
+          <div>
+            <div class="testi-name">Rekha Verma</div>
+            <div class="testi-role">B.Ed Graduate · Primary School Teacher</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The integrated B.A. B.Ed programme saved me time and money. I graduated with two qualifications and was placed within three months. Best decision of my life."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:#4285F4;">A</div>
+          <div>
+            <div class="testi-name">Anjali Singh</div>
+            <div class="testi-role">Integrated B.A.B.Ed Graduate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-cta">
+      <a href="https://www.google.com/search?q=PRAGATI+B+Ed+INSTITUTE+SECTOR+8+GURGAON+Reviews" target="_blank" rel="noopener">⭐ 4.8 Rating — Read All Google Reviews</a>
+    </div>
+  </div>
+</section>
+
 <!-- BOTTOM CTA -->
 <section class="bottom-cta">
   <h2>Ready to start your teaching career?</h2>
@@ -826,6 +911,7 @@ img { max-width: 100%; display: block; }
 <div class="lp-footer">
   <p>
     Pragati B.Ed Institute &nbsp;·&nbsp; 194/16, Nai Basti, Sector 8, Old Railway Road, Gurugram — 122001<br>
+    Delhi Counselling Office: C/O Origin Tutorials, B-65 (Basement), Lajpat Nagar-II, Delhi — 110024<br>
     <a href="tel:+919810290953">98102 90953</a> &nbsp;·&nbsp;
     <a href="https://pragatibedinstitute.com">pragatibedinstitute.com</a> &nbsp;·&nbsp;
     Smt. Lajwanti Educational Society
