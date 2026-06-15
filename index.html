@@ -1095,7 +1095,7 @@
       Shape the Future Through <em>Inspired Teaching</em>
     </h1>
     <p class="hero-sub">
-      Gurugram's premier teacher-training college. Direct admission 2026 — no entrance test, distance mode with online classes.
+      Gurugram's premier teacher-training college. Direct admission 2026 — no entrance test, Regular &amp; Distance mode available with online classes too.
     </p>
     <div class="hero-affil">
       <span class="hero-affil-lbl">Affiliated to</span>
@@ -1147,6 +1147,10 @@
       <div class="hfi-field">
         <label for="hf-phone">Mobile Number *</label>
         <input type="tel" id="hf-phone" placeholder="e.g. 98765 43210" autocomplete="tel">
+      </div>
+      <div class="hfi-field">
+        <label for="hf-email">Email Address</label>
+        <input type="email" id="hf-email" placeholder="e.g. priya@email.com" autocomplete="email">
       </div>
       <div class="hfi-field">
         <label for="hf-course">Programme of Interest *</label>
@@ -1481,8 +1485,11 @@
             <option>ITEP (Integrated Teacher Education)</option>
           </select>
         </div>
+        <div class="form-field">
+          <label for="f-email">Email Address</label>
+          <input type="email" id="f-email" placeholder="e.g. priya@email.com" autocomplete="email">
+        </div>
         <input type="hidden" id="f-qual" value="Not provided">
-        <input type="hidden" id="f-email" value="">
         <button class="form-submit" onclick="handleFormSubmit(event)">Send My Enquiry →</button>
         <p class="form-note">Enquiry sent to our admissions team. Call: <a href="tel:+919810290953" style="color:var(--terra)">98102 90953</a></p>
       </div>
@@ -1617,7 +1624,7 @@
       </div>
     </div>
     <!-- GOOGLE MAPS -->
-    <div style="max-width:1200px;margin:3rem auto 0;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;" class="reveal">
+    <div style="max-width:1200px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;" class="reveal">
       <div style="background:var(--cream);border-radius:20px;overflow:hidden;border:1px solid rgba(180,130,90,0.12);">
         <div style="font-size:0.75rem;font-weight:600;color:var(--terra);text-transform:uppercase;letter-spacing:0.1em;padding:1rem 1.25rem 0.5rem;">📍 Pragati B.Ed Institute — Sector 8</div>
         <iframe
@@ -1641,6 +1648,20 @@
         <div style="padding:0.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
           <span style="font-size:0.8rem;color:var(--mid);">Kamla International School, Sector 50</span>
           <a href="https://maps.app.goo.gl/u4mg46qNbMqa9Phs8" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.8rem;font-weight:600;color:var(--terra);text-decoration:none;white-space:nowrap;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Open Maps
+          </a>
+        </div>
+      </div>
+      <div style="background:var(--cream);border-radius:20px;overflow:hidden;border:1px solid rgba(180,130,90,0.12);">
+        <div style="font-size:0.75rem;font-weight:600;color:var(--terra);text-transform:uppercase;letter-spacing:0.1em;padding:1rem 1.25rem 0.5rem;">📍 Delhi Counselling Office — Lajpat Nagar</div>
+        <iframe
+          src="https://maps.google.com/maps?q=Origin+Tutorials+B-65+Lajpat+Nagar+II+Delhi&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="240" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div style="padding:0.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:0.8rem;color:var(--mid);">C/O Origin Tutorials, B-65 (Basement), Lajpat Nagar-II</span>
+          <a href="https://maps.app.goo.gl/78UsMzpuBFPdGjAA9" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.8rem;font-weight:600;color:var(--terra);text-decoration:none;white-space:nowrap;">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Open Maps
           </a>
@@ -2094,6 +2115,7 @@ async function handleHeroFormSubmit(e) {
   const btn = document.getElementById('hf-btn');
   const name   = document.getElementById('hf-name').value.trim();
   const phone  = document.getElementById('hf-phone').value.trim();
+  const email  = document.getElementById('hf-email').value.trim();
   const course = document.getElementById('hf-course').value;
 
   let ok = true;
@@ -2112,11 +2134,12 @@ async function handleHeroFormSubmit(e) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
-        name, phone,
+        name, phone, email,
         programme: course,
         _subject: 'New Admission Enquiry — Hero Form (Pragati B.Ed)',
+        _replyto: email || 'noreply@pragatibedinstitute.com',
         source: 'Main Site — Hero Form',
-        message: `New enquiry from hero form:\n\nName: ${name}\nPhone: ${phone}\nProgramme: ${course}`
+        message: `New enquiry from hero form:\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email || 'Not provided'}\nProgramme: ${course}`
       })
     });
     if (res.ok) {
@@ -2135,6 +2158,7 @@ async function handleHeroFormSubmit(e) {
         btn.disabled = false;
         document.getElementById('hf-name').value = '';
         document.getElementById('hf-phone').value = '';
+        document.getElementById('hf-email').value = '';
         document.getElementById('hf-course').selectedIndex = 0;
       }, 5000);
     } else { throw new Error('Server error'); }
