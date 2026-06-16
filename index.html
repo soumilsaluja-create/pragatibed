@@ -989,7 +989,6 @@
 </style>
 </head>
 <body>
-<div style="background:#b91c1c;color:#fff;text-align:center;padding:9px 20px;font-size:13.5px;font-weight:700;letter-spacing:0.01em;position:relative;z-index:999;">⚡ <strong>Last few seats for 2026–27</strong> — Apply before <strong>31 August 2026</strong> to get confirmed admission &nbsp;·&nbsp; <a href="tel:+919810290953" onclick="return gtag_report_conversion('tel:+919810290953')" style="color:#fde68a;text-decoration:underline;">📞 Call Now</a></div>
 
 <!-- FLOATING BUTTON STACK -->
 <div class="float-stack">
@@ -1151,7 +1150,7 @@
       </div>
       <div class="hfi-field">
         <label for="hf-email">Email Address</label>
-        <input type="email" id="hf-email" placeholder="e.g. priya@email.com" autocomplete="email">
+        <input type="text" inputmode="email" id="hf-email" placeholder="e.g. priya@email.com" autocomplete="email">
       </div>
       <div class="hfi-field">
         <label for="hf-course">Programme of Interest *</label>
@@ -1488,7 +1487,7 @@
         </div>
         <div class="form-field">
           <label for="f-email">Email Address</label>
-          <input type="email" id="f-email" placeholder="e.g. priya@email.com" autocomplete="email">
+          <input type="text" inputmode="email" id="f-email" placeholder="e.g. priya@email.com" autocomplete="email">
         </div>
         <input type="hidden" id="f-qual" value="Not provided">
         <button class="form-submit" onclick="handleFormSubmit(event)">Send My Enquiry →</button>
@@ -2143,7 +2142,7 @@ async function handleHeroFormSubmit(e) {
         name, phone, enquiry_email: email,
         programme: course,
         _subject: 'New Admission Enquiry — Hero Form (Pragati B.Ed)',
-        _replyto: email || 'noreply@pragatibedinstitute.com',
+        _replyto: 'noreply@pragatibedinstitute.com',
         source: 'Main Site — Hero Form',
         message: `New enquiry from hero form:\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email || 'Not provided'}\nProgramme: ${course}`
       })
@@ -2209,7 +2208,7 @@ async function handleFormSubmit(e) {
         programme: course,
         qualification: qual,
         _subject: 'New Admission Enquiry — Pragati B.Ed Institute',
-        _replyto: email || 'noreply@pragatibedinstitute.com',
+        _replyto: 'noreply@pragatibedinstitute.com',
         message: `New enquiry from website:\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email || 'Not provided'}\nProgramme: ${course}\nQualification: ${qual || 'Not provided'}`
       })
     });
