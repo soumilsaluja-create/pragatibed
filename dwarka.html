@@ -304,7 +304,7 @@ img { max-width: 100%; display: block; }
 
 .wa-btn {
   width: 100%;
-  background: #25D366;
+  background: #127349;
   color: #fff;
   border: none;
   padding: 13px;
@@ -320,7 +320,7 @@ img { max-width: 100%; display: block; }
   transition: background 0.2s;
   text-decoration: none;
 }
-.wa-btn:hover { background: #1da851; }
+.wa-btn:hover { background: #0d5c3d; }
 .wa-btn svg { width: 20px; height: 20px; }
 
 .form-note {
@@ -544,7 +544,7 @@ img { max-width: 100%; display: block; }
 }
 .cta-call:hover { transform: translateY(-2px); }
 .cta-wa {
-  background: #25D366;
+  background: #127349;
   color: #fff;
   font-size: 15px;
   font-weight: 700;
@@ -555,7 +555,7 @@ img { max-width: 100%; display: block; }
   gap: 8px;
   transition: background 0.2s;
 }
-.cta-wa:hover { background: #1da851; }
+.cta-wa:hover { background: #0d5c3d; }
 
 /* ── FOOTER ── */
 .lp-footer {
@@ -563,7 +563,7 @@ img { max-width: 100%; display: block; }
   padding: 28px 24px;
   text-align: center;
 }
-.lp-footer p { font-size: 12.5px; color: rgba(255,255,255,0.45); line-height: 1.8; }
+.lp-footer p { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.8; }
 .lp-footer a { color: rgba(255,255,255,0.65); }
 
 /* ── FLOATING BUTTONS (desktop) ── */
@@ -586,11 +586,11 @@ img { max-width: 100%; display: block; }
   position: relative;
 }
 .fab:hover { transform: scale(1.1); }
-.fab-wa   { background: #25D366; animation: wapulse 2.5s ease infinite; }
+.fab-wa   { background: #127349; animation: wapulse 2.5s ease infinite; }
 .fab-call { background: var(--green); }
 @keyframes wapulse {
-  0%,100% { box-shadow: 0 4px 18px rgba(37,211,102,0.4); }
-  50%      { box-shadow: 0 4px 30px rgba(37,211,102,0.7); }
+  0%,100% { box-shadow: 0 4px 18px rgba(18,115,73,0.4); }
+  50%      { box-shadow: 0 4px 30px rgba(18,115,73,0.7); }
 }
 @media (min-width: 769px) {
   .fab::before {
@@ -630,7 +630,7 @@ img { max-width: 100%; display: block; }
   text-decoration: none;
 }
 .mb-call { background: var(--green); color: #fff; }
-.mb-wa   { background: #25D366; color: #fff; }
+.mb-wa   { background: #127349; color: #fff; }
 .mb-form { background: #111827; color: #fff; }
 
 /* ── RESPONSIVE ── */
@@ -659,12 +659,13 @@ img { max-width: 100%; display: block; }
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-BXM9GD9Q"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- TOP BAR -->
 <div class="topbar">B.Ed Admissions &mdash; Dwarka &nbsp;|&nbsp; No Entrance Test &nbsp;|&nbsp; <a href="tel:+919810290953">&#128222; 98102 90953</a></div>
 
+<main>
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
@@ -727,16 +728,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="form-heading">Apply for Admission</div>
       <div class="form-sub">We'll call you back within <strong>30 minutes</strong></div>
 
-      <label class="f-label">Your Name *</label>
+      <label class="f-label" for="f-name">Your Name *</label>
       <input class="f-input" id="f-name" type="text" placeholder="Full name" autocomplete="name">
 
-      <label class="f-label">Phone Number *</label>
+      <label class="f-label" for="f-phone">Phone Number *</label>
       <input class="f-input" id="f-phone" type="tel" placeholder="98765 43210" autocomplete="tel">
 
-      <label class="f-label">Email Address</label>
+      <label class="f-label" for="f-email">Email Address</label>
       <input class="f-input" id="f-email" type="text" inputmode="email" placeholder="you@email.com" autocomplete="email">
 
-      <label class="f-label">Course Interested In *</label>
+      <label class="f-label" for="f-course">Course Interested In *</label>
       <select class="f-select" id="f-course">
         <option value="">Select a course…</option>
         <option>B.Ed (Bachelor of Education)</option>
@@ -747,7 +748,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <option>Special D.El.Ed (Special Education)</option>
       </select>
 
-      <label class="f-label">Your City / Area</label>
+      <label class="f-label" for="f-city">Your City / Area</label>
       <input class="f-input" id="f-city" type="text" placeholder="e.g. Gurugram, Sector 14">
 
       <div style="background:#fef2f2;border:1px solid #fca5a5;border-radius:6px;padding:8px 12px;font-size:12px;font-weight:700;color:#b91c1c;text-align:center;margin-bottom:10px;">⚡ Apply before 31 Aug 2026 — seats filling fast</div>
@@ -887,7 +888,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text">"As a working woman, the flexible support sessions and Sunday online classes made all the difference. I completed my B.Ed without sacrificing family time."</p>
         <div class="testi-author">
-          <div class="testi-avatar" style="background:#25D366;">R</div>
+          <div class="testi-avatar" style="background:#127349;">R</div>
           <div>
             <div class="testi-name">Rekha Verma</div>
             <div class="testi-role">B.Ed Graduate · Primary School Teacher</div>
@@ -931,6 +932,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+</main>
 <!-- FOOTER -->
 <div class="lp-footer">
   <p>
