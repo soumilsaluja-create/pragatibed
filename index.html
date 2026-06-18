@@ -113,8 +113,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -216,7 +216,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .hero-badge {
     display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--gold-l); color: var(--terra);
+    background: var(--gold-l); color: oklch(0.34 0.13 42);
     font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
     padding: 0.35rem 0.9rem; border-radius: 100px;
     margin-bottom: 1rem;
@@ -249,7 +249,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     text-transform: uppercase; color: var(--mid); margin-right: 0.15rem;
   }
   .hero-affil-tag {
-    font-size: 0.72rem; font-weight: 700; color: var(--terra);
+    font-size: 0.72rem; font-weight: 700; color: oklch(0.34 0.13 42);
     background: var(--gold-l); border: 1px solid rgba(180,130,90,0.2);
     padding: 0.22rem 0.6rem; border-radius: 100px;
   }
@@ -354,12 +354,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hfi-wa {
     width: 100%; margin-top: 0.55rem;
     display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-    background: #25D366; color: #fff;
+    background: #127349; color: #fff;
     font-family: var(--font-b); font-size: 0.85rem; font-weight: 600;
     padding: 0.62rem; border-radius: 100px;
     text-decoration: none; transition: background 0.2s;
   }
-  .hfi-wa:hover { background: #1da851; }
+  .hfi-wa:hover { background: #0d5c3d; }
   .hfi-note { font-size: 0.66rem; color: var(--mid); text-align: center; margin-top: 0.65rem; }
 
   /* Short laptop screens: collapse stats so the form stays in view */
@@ -653,7 +653,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .footer-brand h2 { font-family: var(--font-h); font-size: 1.5rem; color: #fff; margin-bottom: 0.75rem; }
   .footer-brand p { font-size: 0.875rem; line-height: 1.7; max-width: 340px; }
-  .footer-col h4 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .footer-col h3 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
   .footer-col a { display: block; font-size: 0.875rem; color: oklch(0.72 0.02 50); text-decoration: none; margin-bottom: 0.5rem; transition: color 0.2s; }
   .footer-col a:hover { color: var(--gold); }
   .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -877,7 +877,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background: #1A4A35; color: #fff;
   }
   .mob-enq-wa {
-    background: #25D366; color: #fff;
+    background: #127349; color: #fff;
   }
 
   /* ── GOOGLE REVIEWS ── */
@@ -988,7 +988,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-BXM9GD9Q"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- FLOATING BUTTON STACK -->
@@ -1055,7 +1055,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
     <a href="#admission" class="nav-cta">Apply Now</a>
   </div>
-  <div class="nav-hamburger" id="hamburger" aria-label="Menu">
+  <div class="nav-hamburger" id="hamburger" role="button" tabindex="0" aria-label="Toggle navigation" aria-expanded="false">
     <span></span><span></span><span></span>
   </div>
 </nav>
@@ -1080,6 +1080,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#admission" onclick="closeMobile()" style="color:var(--terra);font-weight:600;">Apply Now →</a>
 </div>
 
+<main>
 <!-- URGENCY BANNER -->
 <div style="background:#1A4A35;color:#fff;text-align:center;padding:10px 20px;font-size:0.85rem;font-weight:600;letter-spacing:0.03em;position:relative;z-index:99;margin-top:70px;">
   🎓 <strong>2026–27 Admissions Open</strong> — Limited Seats Available &nbsp;|&nbsp; Direct Admission, No Entrance Test &nbsp;|&nbsp;
@@ -1630,7 +1631,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div style="font-size:0.75rem;font-weight:600;color:var(--terra);text-transform:uppercase;letter-spacing:0.1em;padding:1rem 1.25rem 0.5rem;">📍 Pragati B.Ed Institute — Sector 8</div>
         <iframe
           src="https://maps.google.com/maps?q=Pragati+B+Ed+Institute+Sector+8+Gurugram&t=&z=16&ie=UTF8&iwloc=&output=embed"
-          width="100%" height="240" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          width="100%" height="240" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pragati B.Ed Institute Sector 8 Gurugram">
         </iframe>
         <div style="padding:0.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
           <span style="font-size:0.8rem;color:var(--mid);">194/16, Old Railway Rd, Sector 8</span>
@@ -1644,7 +1645,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div style="font-size:0.75rem;font-weight:600;color:var(--terra);text-transform:uppercase;letter-spacing:0.1em;padding:1rem 1.25rem 0.5rem;">📍 Pragati B.Ed Institute — Sector 50</div>
         <iframe
           src="https://maps.google.com/maps?q=Kamla+International+School+Sector+50+Gurugram&t=&z=16&ie=UTF8&iwloc=&output=embed"
-          width="100%" height="240" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          width="100%" height="240" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pragati B.Ed Institute Sector 50 Gurugram">
         </iframe>
         <div style="padding:0.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
           <span style="font-size:0.8rem;color:var(--mid);">Kamla International School, Sector 50</span>
@@ -1658,7 +1659,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div style="font-size:0.75rem;font-weight:600;color:var(--terra);text-transform:uppercase;letter-spacing:0.1em;padding:1rem 1.25rem 0.5rem;">📍 Delhi Counselling Office — Lajpat Nagar</div>
         <iframe
           src="https://maps.google.com/maps?q=Origin+Tutorials+B-65+Lajpat+Nagar+II+Delhi&t=&z=16&ie=UTF8&iwloc=&output=embed"
-          width="100%" height="240" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          width="100%" height="240" style="border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pragati Delhi Counselling Office Lajpat Nagar">
         </iframe>
         <div style="padding:0.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center;">
           <span style="font-size:0.8rem;color:var(--mid);">C/O Origin Tutorials, B-65 (Basement), Lajpat Nagar-II</span>
@@ -1688,7 +1689,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="qp-lock-sub">These resources are for enrolled B.Ed 1st Year students. Enter the password provided by the institute.</p>
       <div class="qp-input-wrap">
         <input type="password" id="fy-pw" class="qp-input" placeholder="Enter password" autocomplete="off" onkeydown="if(event.key==='Enter')qpCheck('fy')">
-        <button class="qp-eye" onclick="qpToggle('fy')" type="button">
+        <button class="qp-eye" onclick="qpToggle('fy')" type="button" aria-label="Show password">
           <svg id="fy-eye" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
         </button>
       </div>
@@ -1773,7 +1774,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="qp-lock-sub">These resources are for enrolled B.Ed 2nd Year students. Enter the password provided by the institute.</p>
       <div class="qp-input-wrap">
         <input type="password" id="sy-pw" class="qp-input" placeholder="Enter password" autocomplete="off" onkeydown="if(event.key==='Enter')qpCheck('sy')">
-        <button class="qp-eye" onclick="qpToggle('sy')" type="button">
+        <button class="qp-eye" onclick="qpToggle('sy')" type="button" aria-label="Show password">
           <svg id="sy-eye" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
         </button>
       </div>
@@ -1834,6 +1835,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+</main>
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
@@ -1842,14 +1844,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Gurugram's premier teacher-training institution — committed to shaping skilled, knowledgeable, and ethical educators for India's future classrooms.</p>
     </div>
     <div class="footer-col">
-      <h4>Programmes</h4>
+      <h3>Programmes</h3>
       <a href="#courses">B.Ed</a>
       <a href="#courses">M.Ed</a>
       <a href="#courses">D.El.Ed</a>
       <a href="#courses">Integrated B.A. B.Ed</a>
     </div>
     <div class="footer-col">
-      <h4>Quick Links</h4>
+      <h3>Quick Links</h3>
       <a href="#about">About Us</a>
       <a href="#why">Why Pragati</a>
       <a href="#admission">Apply Now</a>
@@ -1864,7 +1866,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
 // ── NAV SCROLL ──
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -1875,7 +1878,8 @@ window.addEventListener('scroll', () => {
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
 hamburger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
+  const open = mobileMenu.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', open);
 });
 function closeMobile() { mobileMenu.classList.remove('open'); }
 
