@@ -113,8 +113,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -204,10 +203,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display: flex; align-items: center;
     overflow: hidden;
     background: linear-gradient(160deg, oklch(0.96 0.02 75) 0%, oklch(0.90 0.03 55) 100%);
-  }
-  #hero-canvas {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    pointer-events: none;
   }
   .hero-content {
     position: relative; z-index: 2;
@@ -1087,7 +1082,6 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 
 <!-- HERO -->
 <section id="hero" style="margin-top:-70px;">
-  <canvas id="hero-canvas"></canvas>
   <div class="hero-grid">
   <div class="hero-content">
     <div class="hero-badge">Admissions Open 2026–27</div>
@@ -1904,93 +1898,6 @@ const counterObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); counterObserver.unobserve(e.target); }});
 }, { threshold: 0.5 });
 statNums.forEach(el => counterObserver.observe(el));
-
-// ── HERO CANVAS (particle field) ──
-(function() {
-  const canvas = document.getElementById('hero-canvas');
-  const ctx = canvas.getContext('2d');
-  let W, H, particles = [], mouse = { x: -9999, y: -9999 };
-  
-  function resize() {
-    W = canvas.width = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-  
-  document.getElementById('hero').addEventListener('mousemove', e => {
-    const r = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - r.left;
-    mouse.y = e.clientY - r.top;
-  });
-  document.getElementById('hero').addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
-
-  const colors = ['oklch(0.72 0.10 75)', 'oklch(0.52 0.12 42)', 'oklch(0.88 0.07 80)', 'oklch(0.65 0.06 145)'];
-
-  for (let i = 0; i < 80; i++) {
-    particles.push({
-      x: Math.random(), y: Math.random(),
-      vx: (Math.random() - 0.5) * 0.0003,
-      vy: (Math.random() - 0.5) * 0.0003,
-      r: Math.random() * 3 + 1.5,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      alpha: Math.random() * 0.4 + 0.15,
-    });
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    
-    // draw connections
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = (particles[i].x - particles[j].x) * W;
-        const dy = (particles[i].y - particles[j].y) * H;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < 130) {
-          ctx.save();
-          ctx.globalAlpha = (1 - dist / 130) * 0.12;
-          ctx.strokeStyle = 'oklch(0.52 0.12 42)';
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x * W, particles[i].y * H);
-          ctx.lineTo(particles[j].x * W, particles[j].y * H);
-          ctx.stroke();
-          ctx.restore();
-        }
-      }
-    }
-
-    // draw particles
-    particles.forEach(p => {
-      // mouse repulsion
-      const mdx = p.x * W - mouse.x;
-      const mdy = p.y * H - mouse.y;
-      const md = Math.sqrt(mdx*mdx + mdy*mdy);
-      if (md < 100) {
-        p.vx += (mdx / md) * 0.0004;
-        p.vy += (mdy / md) * 0.0004;
-      }
-      
-      p.x += p.vx; p.y += p.vy;
-      p.vx *= 0.99; p.vy *= 0.99;
-      if (p.x < 0) p.x = 1; if (p.x > 1) p.x = 0;
-      if (p.y < 0) p.y = 1; if (p.y > 1) p.y = 0;
-
-      ctx.save();
-      ctx.globalAlpha = p.alpha;
-      ctx.fillStyle = p.color;
-      ctx.beginPath();
-      ctx.arc(p.x * W, p.y * H, p.r, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-    });
-
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-
 
 // ── FORM SUBMIT via Formspree ──
 async function handleHeroFormSubmit(e) {
