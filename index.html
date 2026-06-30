@@ -1901,12 +1901,8 @@ async function handleHeroFormSubmit(e) {
       })
     });
     if (res.ok) {
-      btn.textContent = '✓ Sent! We\'ll call you soon.';
+      btn.textContent = 'Thank you! We will contact you shortly ✓';
       btn.style.background = 'oklch(0.50 0.14 145)';
-      const waMsg = encodeURIComponent(
-        `Hello Pragati B.Ed Institute,\n\nI am interested in admission.\n\nName: ${name}\nPhone: ${phone}\nProgramme: ${course}\n\nPlease guide me on next steps.`
-      );
-      setTimeout(() => { window.open(`https://wa.me/919818264953?text=${waMsg}`, '_blank'); }, 800);
       setTimeout(() => {
         btn.textContent = 'Get Admission Details →';
         btn.style.background = '';
@@ -1918,12 +1914,10 @@ async function handleHeroFormSubmit(e) {
       }, 5000);
     } else { throw new Error('Server error'); }
   } catch (err) {
-    btn.textContent = 'Get Admission Details →';
+    btn.textContent = '⚠ Something went wrong — please call or WhatsApp us';
+    btn.style.background = '#c0392b';
     btn.disabled = false;
-    const waMsg = encodeURIComponent(
-      `Hello Pragati B.Ed Institute,\n\nI am interested in admission.\n\nName: ${name}\nPhone: ${phone}\nProgramme: ${course}`
-    );
-    window.open(`https://wa.me/919818264953?text=${waMsg}`, '_blank');
+    setTimeout(() => { btn.textContent = 'Get Admission Details →'; btn.style.background = ''; }, 4000);
   }
 }
 
@@ -1964,16 +1958,8 @@ async function handleFormSubmit(e) {
     });
 
     if (res.ok) {
-      btn.textContent = '✓ Enquiry Sent! We\'ll call you soon.';
+      btn.textContent = 'Thank you! We will contact you shortly ✓';
       btn.style.background = 'oklch(0.50 0.14 145)';
-
-      // Also open WhatsApp with pre-filled message
-      const waMsg = encodeURIComponent(
-        `Hello Pragati B.Ed Institute,\n\nI am interested in admission.\n\nName: ${name}\nPhone: ${phone}\nProgramme: ${course}\n\nPlease guide me on next steps.`
-      );
-      setTimeout(() => {
-        window.open(`https://wa.me/919818264953?text=${waMsg}`, '_blank');
-      }, 800);
 
       // Reset form after 5s
       setTimeout(() => {
@@ -1989,14 +1975,9 @@ async function handleFormSubmit(e) {
     }
   } catch(err) {
     console.error('Enquiry form submission failed:', err);
-    btn.textContent = '✗ Failed — opening WhatsApp…';
+    btn.textContent = '⚠ Something went wrong — please call or WhatsApp us';
     btn.style.background = '#c0392b';
     btn.disabled = false;
-
-    const waMsg = encodeURIComponent(
-      `Hello Pragati B.Ed Institute,\n\nI am interested in admission.\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email || 'Not provided'}\nProgramme: ${course}\n\nPlease guide me on next steps.`
-    );
-    window.open(`https://wa.me/919818264953?text=${waMsg}`, '_blank');
 
     setTimeout(() => { btn.textContent = 'Send My Enquiry →'; btn.style.background = ''; }, 4000);
   }
