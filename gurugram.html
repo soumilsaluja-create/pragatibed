@@ -1010,23 +1010,14 @@ document.getElementById('f-btn').addEventListener('click', function() {
   .then(function(r){ return r.json(); })
   .then(function(d){
     if (d.ok || d.next) {
-      btn.textContent = 'Submitted ✓ We\'ll call you soon!';
+      btn.textContent = 'Thank you! We will contact you shortly ✓';
       btn.style.background = '#16a34a';
       btn.disabled = false;
-      // Open WhatsApp with details
-      var msg = '🎓 *New Admission Enquiry — Gurugram*\n\n👤 *Name:* ' + name +
-                '\n📞 *Phone:* ' + phone + '\n📧 *Email:* ' + (email || '—') + '\n📚 *Course:* ' + course +
-                '\n📍 *City:* ' + (city || 'Gurugram');
-      window.open('https://wa.me/919818264953?text=' + encodeURIComponent(msg), '_blank');
     } else { throw new Error(); }
   })
   .catch(function(){
     btn.textContent = 'Get Admission Details →';
     btn.disabled = false;
-    var msg = '🎓 *New Admission Enquiry — Gurugram*\n\n👤 *Name:* ' + name +
-              '\n📞 *Phone:* ' + phone + '\n📧 *Email:* ' + (email || '—') + '\n📚 *Course:* ' + course +
-              '\n📍 *City:* ' + (city || 'Gurugram');
-    window.open('https://wa.me/919818264953?text=' + encodeURIComponent(msg), '_blank');
   });
 });
 </script>
