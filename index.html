@@ -429,6 +429,10 @@ transition: transform 0.3s;
 }
 .course-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(120,80,40,0.12); }
 .course-card:hover::before { transform: scaleX(1); }
+.course-card--law { cursor: pointer; }
+.course-card--law::before { background: linear-gradient(90deg, #1a3a6b, #254d90); }
+.course-card--law .course-tag { color: #1a3a6b; background: #e8eef8; }
+.course-card--law .course-link { display:inline-block;margin-top:1rem;font-size:0.8rem;font-weight:700;color:#1a3a6b;letter-spacing:0.03em; }
 .course-tag {
 display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
 text-transform: uppercase; color: var(--terra); background: var(--gold-l);
@@ -1068,6 +1072,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       <span class="hero-course-pill">M.Ed</span>
       <span class="hero-course-pill">D.El.Ed</span>
       <span class="hero-course-pill">ITEP / BA B.Ed</span>
+      <span class="hero-course-pill" style="color:#1a3a6b;border-color:#1a3a6b">LLB / BA LLB</span>
     </div>
     <div class="hero-actions">
       <a href="#admission" class="btn-primary">
@@ -1246,6 +1251,23 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
           After 10+2
         </div>
       </div>
+    </div>
+    <div class="course-card course-card--law reveal" style="transition-delay:0.4s" onclick="location.href='/llb-delhi.html'">
+      <div class="course-tag">3 / 5 Years</div>
+      <div class="course-title">LLB / BA LLB</div>
+      <div class="course-full">Bachelor of Laws — St. Thomas' College of Law, Greater Noida</div>
+      <p class="course-desc">NAAC A++ law degrees at BCI approved, CCS University affiliated college. LLB (3-yr) after graduation or BA LLB (5-yr) after 10+2. Regular &amp; irregular mode. 120 seats for 2026 batch.</p>
+      <div class="course-meta">
+        <div class="course-meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          LLB 3 Yr &middot; BA LLB 5 Yr
+        </div>
+        <div class="course-meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Graduation / After 10+2
+        </div>
+      </div>
+      <span class="course-link">Enquire Now &rarr;</span>
     </div>
   </div>
 </section>
@@ -1805,6 +1827,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       <a href="#courses">M.Ed</a>
       <a href="#courses">D.El.Ed</a>
       <a href="#courses">Integrated B.A. B.Ed</a>
+      <a href="/llb-delhi.html">LLB / BA LLB</a>
     </div>
     <div class="footer-col">
       <h3>Quick Links</h3>
