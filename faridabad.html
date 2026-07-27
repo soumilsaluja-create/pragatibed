@@ -1021,7 +1021,7 @@ document.getElementById('f-btn').addEventListener('click', function() {
   btn.textContent = 'Sending…';
   btn.disabled = true;
 
-  fetch('https://pragatipolytechnic.com/submit-form.php', {
+  fetch('https://forms.pragatipolytechnic.com/submit-form.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
