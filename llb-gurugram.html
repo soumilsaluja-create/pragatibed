@@ -24,6 +24,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'AW-1018585285');
 </script>
 <script>
+(function() {
+  function getParam(name) {
+    var params = new URLSearchParams(window.location.search);
+    return params.get(name);
+  }
+  function setCookie(name, value, days) {
+    var expires = new Date(Date.now() + days*24*60*60*1000).toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax';
+  }
+  window.getGclid = function() {
+    var match = document.cookie.match(/(?:^|; )gclid=([^;]*)/);
+    return match ? decodeURIComponent(match[1]) : '';
+  };
+  var gclid = getParam('gclid');
+  if (gclid) { setCookie('gclid', gclid, 90); }
+})();
+</script>
+<script>
   gtag('config', 'AW-1018585285/cfqCCO3PrrQcEMXB2eUD', {
     'phone_conversion_number': '8796650700'
   });
@@ -433,7 +451,7 @@ document.getElementById('f-btn').addEventListener('click', function() {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
-      name: name, phone: phone, enquiry_email: email, course: course,
+      gclid: (window.getGclid ? window.getGclid() : ''), name: name, phone: phone, enquiry_email: email, course: course,
       city: city || 'Gurugram', source: 'LLB Landing Page — Gurugram (MDU Rohtak)'
     })
   })

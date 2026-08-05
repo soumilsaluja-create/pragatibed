@@ -20,6 +20,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   gtag('config', 'AW-1018585285');
 </script>
+<script>
+(function() {
+  function getParam(name) {
+    var params = new URLSearchParams(window.location.search);
+    return params.get(name);
+  }
+  function setCookie(name, value, days) {
+    var expires = new Date(Date.now() + days*24*60*60*1000).toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax';
+  }
+  window.getGclid = function() {
+    var match = document.cookie.match(/(?:^|; )gclid=([^;]*)/);
+    return match ? decodeURIComponent(match[1]) : '';
+  };
+  var gclid = getParam('gclid');
+  if (gclid) { setCookie('gclid', gclid, 90); }
+})();
+</script>
   <script>
   gtag('config', 'AW-1018585285/cfqCCO3PrrQcEMXB2eUD', {
     'phone_conversion_number': '9810290953'
@@ -1915,7 +1933,7 @@ async function handleHeroFormSubmit(e) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
-        name, phone, enquiry_email: email,
+        gclid: (window.getGclid ? window.getGclid() : ''), name, phone, enquiry_email: email,
         programme: course,
         _subject: 'New Admission Enquiry — Hero Form (Pragati B.Ed)',
         _replyto: 'noreply@pragatibedinstitute.com',
@@ -1971,7 +1989,7 @@ async function handleFormSubmit(e) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
-        name, phone, enquiry_email: email,
+        gclid: (window.getGclid ? window.getGclid() : ''), name, phone, enquiry_email: email,
         programme: course,
         qualification: qual,
         _subject: 'New Admission Enquiry — Pragati B.Ed Institute',
