@@ -215,6 +215,45 @@ transition: background 0.2s, transform 0.15s !important;
 .nav-cta:hover { background: var(--terra-l) !important; transform: translateY(-1px) !important; }
 .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
 .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--terra); border-radius: 2px; transition: all 0.3s; }
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: none; border: none; cursor: pointer; padding: 0;
+  font-family: var(--font-b); font-size: 0.875rem; font-weight: 600;
+  letter-spacing: 0.02em; color: var(--terra);
+}
+.nav-dropdown-toggle .chevron { transition: transform 0.2s; }
+.nav-dropdown.open .nav-dropdown-toggle .chevron,
+.nav-dropdown:hover .nav-dropdown-toggle .chevron { transform: rotate(180deg); }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  margin-top: 0.6rem; background: #fff; border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.14); border: 1px solid rgba(180,130,90,0.14);
+  padding: 0.5rem; min-width: 210px; max-height: 70vh; overflow-y: auto;
+  display: none; flex-direction: column; gap: 0.1rem; z-index: 200;
+}
+.nav-dropdown.open .nav-dropdown-menu,
+.nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+.nav-dropdown-menu a {
+  padding: 0.5rem 0.75rem; border-radius: 9px;
+  font-size: 0.82rem !important; font-weight: 500 !important;
+  color: var(--dark) !important; white-space: nowrap; letter-spacing: normal;
+}
+.nav-dropdown-menu a:hover { background: var(--cream2); color: var(--terra) !important; }
+.mobile-dropdown-toggle {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; background: none; border: none; cursor: pointer; padding: 0;
+  font-family: var(--font-b); color: var(--terra); font-weight: 600; font-size: 1rem;
+}
+.mobile-dropdown-toggle .chevron { transition: transform 0.2s; flex-shrink: 0; }
+.mobile-dropdown.open .mobile-dropdown-toggle .chevron { transform: rotate(180deg); }
+.mobile-dropdown-menu {
+  display: none; flex-direction: column; gap: 0.1rem;
+  padding: 0.6rem 0 0 1rem; margin-top: 0.6rem;
+  border-left: 2px solid rgba(180,130,90,0.2);
+}
+.mobile-dropdown.open .mobile-dropdown-menu { display: flex; }
+.mobile-dropdown-menu a { font-size: 0.9rem !important; }
 .mobile-menu {
 display: none; position: fixed; top: 70px; left: 0; right: 0; z-index: 99;
 background: rgba(250,245,238,0.97); backdrop-filter: blur(18px);
@@ -1035,14 +1074,26 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     <a href="#testimonials">Stories</a>
     <a href="#campus">Campus</a>
     <a href="#contact">Contact</a>
-    <a href="#qp-first-year" style="display:inline-flex;align-items:center;gap:0.35rem;color:var(--terra);font-weight:600;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-      1st Year Papers
-    </a>
-    <a href="#qp-second-year" style="display:inline-flex;align-items:center;gap:0.35rem;color:var(--terra);font-weight:600;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-      2nd Year Papers
-    </a>
+    <div class="nav-dropdown" id="nav-study-dropdown">
+      <button class="nav-dropdown-toggle" id="nav-study-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Study Material
+        <svg class="chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="nav-dropdown-menu">
+        <a href="#qp-first-year">B.Ed 1st Year</a>
+        <a href="#qp-second-year">B.Ed 2nd Year</a>
+        <a href="#qp-med">M.Ed</a>
+        <a href="#qp-babed">B.A. B.Ed</a>
+        <a href="#qp-bscbed">B.Sc. B.Ed</a>
+        <a href="#qp-llb">LLB</a>
+        <a href="#qp-llm">LLM</a>
+        <a href="#qp-ballb">B.A. LL.B.</a>
+        <a href="#qp-bba">BBA</a>
+        <a href="#qp-bca">BCA</a>
+        <a href="#qp-bedspl">B.Ed Special Education</a>
+      </div>
+    </div>
     <a href="https://wa.me/919818264953?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20admissions%20at%20Pragati%20B.Ed%20Institute." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.35rem;color:#127349 !important;">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="#127349"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
       WhatsApp
@@ -1059,14 +1110,28 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
   <a href="#why" onclick="closeMobile()">Why Us</a>
   <a href="#testimonials" onclick="closeMobile()">Stories</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="#qp-first-year" onclick="closeMobile()" style="color:var(--terra);font-weight:600;display:flex;align-items:center;gap:0.4rem;">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-    1st Year Papers
-  </a>
-  <a href="#qp-second-year" onclick="closeMobile()" style="color:var(--terra);font-weight:600;display:flex;align-items:center;gap:0.4rem;">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-    2nd Year Papers
-  </a>
+  <div class="mobile-dropdown" id="mobile-study-dropdown">
+    <button class="mobile-dropdown-toggle" id="mobile-study-toggle" type="button" aria-expanded="false">
+      <span style="display:flex;align-items:center;gap:0.4rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Study Material
+      </span>
+      <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="mobile-dropdown-menu">
+      <a href="#qp-first-year" onclick="closeMobile()">B.Ed 1st Year</a>
+      <a href="#qp-second-year" onclick="closeMobile()">B.Ed 2nd Year</a>
+      <a href="#qp-med" onclick="closeMobile()">M.Ed</a>
+      <a href="#qp-babed" onclick="closeMobile()">B.A. B.Ed</a>
+      <a href="#qp-bscbed" onclick="closeMobile()">B.Sc. B.Ed</a>
+      <a href="#qp-llb" onclick="closeMobile()">LLB</a>
+      <a href="#qp-llm" onclick="closeMobile()">LLM</a>
+      <a href="#qp-ballb" onclick="closeMobile()">B.A. LL.B.</a>
+      <a href="#qp-bba" onclick="closeMobile()">BBA</a>
+      <a href="#qp-bca" onclick="closeMobile()">BCA</a>
+      <a href="#qp-bedspl" onclick="closeMobile()">B.Ed Special Education</a>
+    </div>
+  </div>
   <a href="https://wa.me/919818264953?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20admissions%20at%20Pragati%20B.Ed%20Institute." target="_blank" rel="noopener" onclick="closeMobile()" style="color:#127349;font-weight:600;display:flex;align-items:center;gap:0.4rem;">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="#127349"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
     WhatsApp Us
@@ -2800,6 +2865,34 @@ hamburger.addEventListener('click', () => {
   hamburger.setAttribute('aria-expanded', open);
 });
 function closeMobile() { mobileMenu.classList.remove('open'); }
+
+// ── STUDY MATERIAL DROPDOWNS ──
+const navStudyDropdown = document.getElementById('nav-study-dropdown');
+const navStudyToggle = document.getElementById('nav-study-toggle');
+navStudyToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = navStudyDropdown.classList.toggle('open');
+  navStudyToggle.setAttribute('aria-expanded', isOpen);
+});
+document.addEventListener('click', (e) => {
+  if (!navStudyDropdown.contains(e.target)) {
+    navStudyDropdown.classList.remove('open');
+    navStudyToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    navStudyDropdown.classList.remove('open');
+    navStudyToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+const mobileStudyDropdown = document.getElementById('mobile-study-dropdown');
+const mobileStudyToggle = document.getElementById('mobile-study-toggle');
+mobileStudyToggle.addEventListener('click', () => {
+  const isOpen = mobileStudyDropdown.classList.toggle('open');
+  mobileStudyToggle.setAttribute('aria-expanded', isOpen);
+});
 
 // ── SCROLL REVEAL ──
 const reveals = document.querySelectorAll('.reveal');
